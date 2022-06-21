@@ -6,7 +6,7 @@ class DataAggregator:
         self.folder = self.get_folder_name()
         self.seqlen = 0 # using seqlen as a global variable as its used in multiple places
 
-    # Function to read Folder Name as an input from the user.
+    # method to read Folder Name as an input from the user.
     def get_folder_name(self) -> str:
         inp = input('Folder Name : ')
         return inp
@@ -45,6 +45,7 @@ class DataAggregator:
                         json_line = json.loads(line)
                         self.seqlen += int(json_line["seqlen"]) # type casting is value exists as a string to int.
 
+    # Main method to call the needed methods in an order.
     def main(self):
         file_list = self.read_file_names_of_a_folder()
         print(file_list)
