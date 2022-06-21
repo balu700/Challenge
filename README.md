@@ -25,8 +25,29 @@ Usage:
 
 Download and run tests
 ```
+git clone https://github.com/balu700/Challenge.git
+
+python code.py
+```
+On running the program user will be asked to enter Folder - Kindly enter - "Data"
+
+```
+Folder Name : Data
+```
+
+This will give the output.
+
+How to run Pytest:
+__________________
+
+```
+pytest
 ```
 
 Install
 ```
+install python 3 verison pythin 3.10
+
+pip isntall pytest (Needed for unittesting)
+
 ```
