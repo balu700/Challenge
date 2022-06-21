@@ -4,14 +4,22 @@ import os
 class DataAggregator:
     def __init__(self) -> None:
         self.folder = self.get_folder_name()
-        self.seqlen = 0
+        self.seqlen = 0 # using seqlen as a global variable as its used in multiple places
 
+    # Function to read Folder Name as an input from the user.
     def get_folder_name(self) -> str:
         inp = input('Folder Name : ')
         return inp
 
+    '''
+    Read all the file names in a Folder
+    exception is handeled, 
+    if Folder exits read the file names
+    else throw and exception
+    '''
     def read_file_names_of_a_folder(self):
         lister = []
+        # making dir_path as a global variable because its being used in many places.
         self.dir_path = os.path.join(os.getcwd(), self.folder)
         try:
             for path in os.listdir(self.dir_path):
@@ -22,6 +30,11 @@ class DataAggregator:
             print("No such file or directory")
             return []
 
+    '''
+    Main method in which we can add all the seqlen values
+    and keep the cummulative value in global variable
+    self.seqlen.
+    '''
     def seqlen_adder(self, file_list):
         for i in file_list:
             current_file = os.path.join(self.dir_path, i)
@@ -30,7 +43,7 @@ class DataAggregator:
                 with open(current_file) as f:
                     for line in f:
                         json_line = json.loads(line)
-                        self.seqlen += json_line["seqlen"]
+                        self.seqlen += int(json_line["seqlen"]) # type casting is value exists as a string to int.
 
     def main(self):
         file_list = self.read_file_names_of_a_folder()
