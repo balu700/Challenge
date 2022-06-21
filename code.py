@@ -1,7 +1,6 @@
 import json
 import os
 
-
 class DataAggregator:
     def __init__(self) -> None:
         self.folder = self.get_folder_name()
@@ -33,9 +32,9 @@ class DataAggregator:
                         json_line = json.loads(line)
                         self.seqlen += json_line["seqlen"]
 
-
     def main(self):
         file_list = self.read_file_names_of_a_folder()
+        print(file_list)
         self.seqlen_adder(file_list)
         print(self.seqlen)
 
