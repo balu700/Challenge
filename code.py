@@ -50,7 +50,7 @@ class DataAggregator:
         file_list = self.read_file_names_of_a_folder()
         print(file_list)
         self.seqlen_adder(file_list)
-        print(self.seqlen)
+        print("total sum of all values for `seqlen` field : ", self.seqlen)
 
 obj = DataAggregator()
 obj.main()
